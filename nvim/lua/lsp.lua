@@ -2,7 +2,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-local servers = {'pyright', 'tsserver', 'eslint', 'rust_analyzer', 'volar'}
+local servers = {'pyright', 'tsserver', 'eslint', 'rust_analyzer', 'svelte', 'volar'}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
