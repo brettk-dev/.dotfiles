@@ -7,5 +7,5 @@ ln -s $(pwd)/nvim ~/.config
 ln -s $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 
 # Install Neovim plugins
-nvim +PlugInstall +qall
+nvim +PackerInstall +qall
 
