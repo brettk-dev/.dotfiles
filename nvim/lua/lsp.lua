@@ -2,7 +2,18 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-local servers = {'pyright', 'tsserver', 'eslint', 'rust_analyzer', 'svelte', 'volar'}
+local servers = {
+  'astro',
+  'elixirls',
+  'eslint',
+  'gopls',
+  'pyright',
+  'rust_analyzer',
+  'svelte',
+  'tsserver',
+  'volar',
+  'zls',
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -25,23 +36,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.pyright.setup {
-  capabilities = capabilities,
-}
-lspconfig.tsserver.setup {
-  capabilities = capabilities,
-}
-lspconfig.eslint.setup {
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end,
-}
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
+lspconfig.elixirls.setup{
+  cmd = {"/home/brettk/.elixirls/language_server.sh"},
 }
 
 

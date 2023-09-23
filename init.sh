@@ -9,3 +9,4 @@ ln -s $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 # Install Neovim plugins
 nvim +PackerSync
 
+# TODO Install language servers for elixir, vue, typescript
