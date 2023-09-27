@@ -13,11 +13,9 @@ return require('packer').startup(function(use)
 	use {
 		'glepnir/galaxyline.nvim',
 		branch = 'main',
-		-- your statusline
 		config = function()
 			require('eviline')
 		end,
-		-- some optional icons
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
 	}
 	use {
@@ -25,5 +23,6 @@ return require('packer').startup(function(use)
 		config = function() require('gitsigns').setup() end
 	}
 	use 'fatih/vim-go'
-	use 'sainnhe/everforest'
+	-- use 'sainnhe/everforest'
+  use 'folke/tokyonight.nvim'
 end)

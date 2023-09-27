@@ -19,8 +19,7 @@ vim.opt.scrolloff = 5
 vim.opt.showtabline = 2
 
 vim.opt.background = 'dark'
---vim.opt.colorscheme = 'everforest'
-vim.cmd('colorscheme everforest')
+vim.cmd('colorscheme tokyonight-night')
 
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
