@@ -23,6 +23,6 @@ return require('packer').startup(function(use)
 		config = function() require('gitsigns').setup() end
 	}
 	use 'fatih/vim-go'
-	-- use 'sainnhe/everforest'
+  use 'tpope/vim-commentary'
   use 'folke/tokyonight.nvim'
 end)
