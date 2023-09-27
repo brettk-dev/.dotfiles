@@ -18,14 +18,14 @@ local servers = {
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
+
     on_attach = function(client, bufnr)
       vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = bufnr,
         callback = function ()
-          vim.lsp.buf.format { async = true }
+          vim.lsp.buf.format()
         end,
       })
-
       if lsp == "eslint" then
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = bufnr,

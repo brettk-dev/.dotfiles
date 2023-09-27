@@ -1,5 +1,7 @@
 require('plugins')
 
+require('comment')
+require('commentstring')
 require('fzf')
 require('lsp')
 require('mason_cfg')

@@ -157,6 +157,11 @@ _G.packer_plugins = {
     path = "/home/brettk/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-context-commentstring"] = {
+    loaded = true,
+    path = "/home/brettk/.local/share/nvim/site/pack/packer/start/vim-context-commentstring",
+    url = "https://github.com/suy/vim-context-commentstring"
+  },
   ["vim-go"] = {
     loaded = true,
     path = "/home/brettk/.local/share/nvim/site/pack/packer/start/vim-go",
