@@ -1,11 +1,13 @@
-require('plugins')
+require("plugins")
 
-require('comment')
-require('commentstring')
-require('fzf')
-require('lsp')
-require('mason_cfg')
-require('treesitter')
+require("comment")
+require("commentstring")
+require("format")
+require("fzf")
+require("linter")
+require("lsp")
+require("mason_cfg")
+require("treesitter")
 
 vim.opt.path = vim.opt.path + "**"
 
@@ -20,8 +22,8 @@ vim.opt.scrolloff = 5
 
 vim.opt.showtabline = 2
 
-vim.opt.background = 'dark'
-vim.cmd('colorscheme tokyonight-night')
+vim.opt.background = "dark"
+vim.cmd("colorscheme tokyonight-night")
 
 vim.opt.spell = true
-vim.opt.spelllang = 'en_us'
+vim.opt.spelllang = "en_us"
