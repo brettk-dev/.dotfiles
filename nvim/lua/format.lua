@@ -5,11 +5,11 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	filetype = {
 		javascript = {
-			require("formatter.filetypes.javascript").prettier,
+			require("formatter.filetypes.javascript").prettierd,
 		},
 
 		javascriptreact = {
-			require("formatter.filetypes.javascriptreact").prettier,
+			require("formatter.filetypes.javascriptreact").prettierd,
 		},
 
 		lua = {
@@ -17,15 +17,15 @@ require("formatter").setup({
 		},
 
 		typescript = {
-			require("formatter.filetypes.typescript").prettier,
+			require("formatter.filetypes.typescript").prettierd,
 		},
 
 		typescriptreact = {
-			require("formatter.filetypes.typescriptreact").prettier,
+			require("formatter.filetypes.typescriptreact").prettierd,
 		},
 
 		vue = {
-			require("formatter.filetypes.vue").prettier,
+			require("formatter.filetypes.vue").prettierd,
 		},
 
 		["*"] = {
