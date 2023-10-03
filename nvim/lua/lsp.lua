@@ -6,7 +6,7 @@ local servers = {
 	"astro",
 	"elixirls",
 	-- Remove eslint in favor of using nvim-lint
-	-- 'eslint',
+	"eslint",
 	"gopls",
 	"pyright",
 	"rust_analyzer",
