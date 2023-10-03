@@ -1,11 +1,27 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+local util = require("lspconfig.util")
+local function get_typescript_server_path(root_dir)
+	local global_ts = "/home/[yourusernamehere]/.npm/lib/node_modules/typescript/lib"
+	local found_ts = ""
+	local function check_dir(path)
+		found_ts = util.path.join(path, "node_modules", "typescript", "lib")
+		if util.path.exists(found_ts) then
+			return path
+		end
+	end
+	if util.search_ancestors(root_dir, check_dir) then
+		return found_ts
+	else
+		return global_ts
+	end
+end
+
 -- Setup language servers.
 local lspconfig = require("lspconfig")
 local servers = {
 	"astro",
 	"elixirls",
-	-- Remove eslint in favor of using nvim-lint
 	"eslint",
 	"gopls",
 	"pyright",
@@ -19,29 +35,17 @@ local servers = {
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
-
-		-- Disabled the following in favor of using a plugin designed for formatting.
-		-- on_attach = function(client, bufnr)
-		--   if lsp ~= "volar" then
-		--     vim.api.nvim_create_autocmd("BufWritePre", {
-		--       buffer = bufnr,
-		--       callback = function ()
-		--         vim.lsp.buf.format { async = false }
-		--       end,
-		--     })
-		--   end
-		--   if lsp == "eslint" then
-		--     vim.api.nvim_create_autocmd("BufWritePre", {
-		--       buffer = bufnr,
-		--       command = "EslintFixAll",
-		--     })
-		--   end
-		-- end,
 	})
 end
 
 lspconfig.elixirls.setup({
 	cmd = { "/home/brettk/.elixirls/language_server.sh" },
+})
+
+lspconfig.volar.setup({
+	on_new_config = function(new_config, new_root_dir)
+		new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
+	end,
 })
 
 -- Global mappings.
